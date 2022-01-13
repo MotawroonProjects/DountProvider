@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AkkaberProvider/app/src/main/res/layout/activity_splash.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_home.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_language.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_login.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_notification.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/activity_splash.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/fragment_contact_us.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/fragment_home.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/fragment_language.xml" value="0.27291666666666664" />
+        <entry key="..\:/DountProvider/app/src/main/res/layout/fragment_order_details.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable-v24/circle_color4.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable-v24/line2.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable-v24/line_vert.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable-v24/rounded_color4.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/circle_color44.xml" value="0.1125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/circle_color6.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/circle_gray3.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/circle_stroke_color4.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/ic_call.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/ic_lock.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/ic_nav_bg.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/ic_user.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/line.xml" value="0.2203125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/line2.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/line_vert.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/nav_icon.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_bottom_color2.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_bottom_color4.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_color3.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_color44.xml" value="0.1125" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_stroke_color4.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_top_color2.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_top_color22.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_top_color4.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/drawable/rounded_top_green.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/activity_home.xml" value="0.1935185185185185" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/activity_language.xml" value="0.2" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/activity_sign_up.xml" value="0.16" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/filter_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_contact_us.xml" value="0.2" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_current_reservation.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1824074074074074" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_home.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_language.xml" value="0.1935185185185185" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_order_details.xml" value="0.2" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/fragment_previous_reservation.xml" value="0.2" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/header_layout.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/notification_row.xml" value="0.12777777777777777" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/order_row.xml" value="0.33" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/previous_order_row.xml" value="0.22" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/product_row.xml" value="0.22" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/spinner_row.xml" value="0.16111111111111112" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/step1_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/step2_layout.xml" value="0.22" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/layout/step3_layout.xml" value="0.18" />
+        <entry key="..\:/Users/Arb Develpor/Desktop/emad/Projects/AkaberProvider/app/src/main/res/menu/menu.xml" value="0.4446601941747573" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
