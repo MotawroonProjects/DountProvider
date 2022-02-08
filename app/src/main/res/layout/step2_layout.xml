@@ -63,7 +63,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_weight="1"
                             android:gravity="start|center_vertical"
-                            android:text="@{model.setting.address}"
+                            android:text="@{model.branch.address}"
                             android:textAlignment="viewStart"
                             android:textColor="@color/gray3"
                             android:textSize="13sp"

@@ -71,8 +71,8 @@ public class FragmentPreviousReservation extends BaseFragment {
         binding.recView.setLayoutManager(new LinearLayoutManager(activity));
         binding.recView.setAdapter(adapter);
 
-        fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
-        binding.swipeRefresh.setOnRefreshListener(() -> fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue()));
+        fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
+        binding.swipeRefresh.setOnRefreshListener(() -> fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue()));
 
         binding.swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         binding.flFilter.setOnClickListener(v -> {
@@ -89,28 +89,28 @@ public class FragmentPreviousReservation extends BaseFragment {
             fragmentPreviousOrderMvvm.setFilterBy("week");
             binding.flFilterDialog.setVisibility(View.GONE);
             binding.tvFilter.setText(R.string.last_week);
-            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
+            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
 
         });
         binding.rbMonth.setOnClickListener(v -> {
             fragmentPreviousOrderMvvm.setFilterBy("month");
             binding.tvFilter.setText(R.string.last_month);
             binding.flFilterDialog.setVisibility(View.GONE);
-            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
+            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
 
         });
         binding.rbYear.setOnClickListener(v -> {
             fragmentPreviousOrderMvvm.setFilterBy("year");
             binding.tvFilter.setText(R.string.last_year);
             binding.flFilterDialog.setVisibility(View.GONE);
-            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
+            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
 
         });
         binding.rbAll.setOnClickListener(v -> {
             fragmentPreviousOrderMvvm.setFilterBy(null);
             binding.tvFilter.setText(R.string.all);
             binding.flFilterDialog.setVisibility(View.GONE);
-            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getApi_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
+            fragmentPreviousOrderMvvm.getOrder(getUserModel().getData().getAccess_token(), fragmentPreviousOrderMvvm.getFilterBy().getValue());
 
         });
 

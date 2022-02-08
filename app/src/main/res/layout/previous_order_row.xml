@@ -5,7 +5,7 @@
     <data>
         <variable
             name="model"
-            type="com.apps.dount_provider.model.PreviousOrderModel" />
+            type="com.apps.dount_provider.model.OrderModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -26,7 +26,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_avatar"
-                user_image="@{model.user.photo}"
+                user_image="@{model.customer.photo}"
                 android:layout_gravity="center_vertical"
                 />
             <androidx.legacy.widget.Space
@@ -48,7 +48,7 @@
                     android:textColor="@color/gray3"
                     android:lines="1"
                     android:ellipsize="end"
-                    android:text='@{model.user.first_name+" "+model.user.last_name}'
+                    android:text='@{model.customer.name}'
                     />
 
                 <TextView
@@ -59,7 +59,7 @@
                     android:lines="1"
                     android:ellipsize="end"
                     android:layout_marginTop="5dp"
-                    android:text='@{model.day}'
+                    android:text='@{model.created_at.split("T")[0]}'
 
                     />
 

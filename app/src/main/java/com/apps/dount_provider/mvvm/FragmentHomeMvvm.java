@@ -62,11 +62,11 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         return onRefused;
     }
 
-    public void getOrder(String user_token) {
+    public void getOrder(String user_id) {
         isLoadingLivData.setValue(true);
 
         Api.getService(Tags.base_url)
-                .getCurrentOrders(user_token)
+                .getCurrentOrders(user_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<OrderDataModel>>() {
@@ -102,7 +102,7 @@ public class FragmentHomeMvvm extends AndroidViewModel {
         dialog.setCancelable(false);
         dialog.show();
         Api.getService(Tags.base_url)
-                .cancelOrder(userModel.getData().getApi_token(), order_id)
+                .cancelOrder(userModel.getData().getAccess_token(), order_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {

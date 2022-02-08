@@ -54,7 +54,7 @@ public class HomeActivityMvvm extends AndroidViewModel {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
-        Api.getService(Tags.base_url).logout(userModel.getData().getApi_token(), userModel.getData().getFirebase_token())
+        Api.getService(Tags.base_url).logout(userModel.getData().getAccess_token(), userModel.getData().getFirebase_token())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
@@ -92,7 +92,8 @@ public class HomeActivityMvvm extends AndroidViewModel {
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener((Activity) context, task -> {
             if (task.isSuccessful()) {
                 String token = task.getResult().getToken();
-                Api.getService(Tags.base_url).updateFirebaseToken(userModel.getData().getApi_token(), userModel.getData().getId() ,token, "android")
+                Log.e(";ll",token);
+                Api.getService(Tags.base_url).updateFirebaseToken(userModel.getData().getAccess_token(), userModel.getData().getUser().getId() ,token, "android")
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new SingleObserver<Response<StatusResponse>>() {
@@ -103,6 +104,7 @@ public class HomeActivityMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<StatusResponse> statusResponseResponse) {
+                        Log.e("uuuu",statusResponseResponse.code()+""+statusResponseResponse.body().getStatus());
                         if (statusResponseResponse.isSuccessful()) {
                             if (statusResponseResponse.body().getStatus() == 200) {
                                 firebase.setValue(token);

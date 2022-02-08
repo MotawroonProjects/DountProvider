@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                image="@{model.product.photo}"
+                image="@{model.product.image}"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <androidx.legacy.widget.Space
@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lines="1"
-                    android:text="@{model.product.title}"
+                    android:text="@{model.product.name}"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -50,10 +50,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lines="2"
-                    android:text='@{model.desc??""}'
                     android:textColor="@color/gray3"
                     android:textSize="12sp"
-
+android:visibility="gone"
                     />
 
                 <LinearLayout

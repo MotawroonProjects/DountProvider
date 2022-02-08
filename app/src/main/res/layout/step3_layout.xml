@@ -44,7 +44,7 @@
                         android:orientation="horizontal">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            user_image="@{model.user.photo}"
+                            user_image="@{model.customer.photo}"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:src="@drawable/circle_avatar" />
@@ -63,7 +63,7 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text='@{model.user.first_name+" "+model.user.last_name}'
+                                android:text='@{model.customer.name}'
                                 android:textColor="@color/gray3"
                                 android:textSize="14sp" />
 
@@ -73,7 +73,7 @@
                                 android:layout_marginTop="8dp"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="@{model.user.phone}"
+                                android:text="@{model.customer.phone_number}"
                                 android:textColor="@color/color4"
                                 android:textSize="13sp" />
 

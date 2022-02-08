@@ -95,8 +95,8 @@ public class SignUpActivity extends BaseActivity {
             if (adapter != null) {
                 adapter.updateData(data);
                 if (getUserModel() != null) {
-                    int pos = getVehiclePos(getUserModel().getData().getVehicle_id());
-                    binding.spinner.setSelection(pos);
+                   // int pos = getVehiclePos(getUserModel().getData().getUser().getVehicle_id());
+                   // binding.spinner.setSelection(pos);
                 }
 
             }
@@ -108,11 +108,11 @@ public class SignUpActivity extends BaseActivity {
         });
 
         activitySignupMvvm.onUpdateSuccess().observe(this, userModel -> {
-            String api_token = getUserModel().getData().getApi_token();
-            userModel.getData().setApi_token(api_token);
-            setUserModel(userModel);
-            setResult(RESULT_OK);
-            finish();
+//            String api_token = getUserModel().getData().getApi_token();
+//            userModel.getData().setApi_token(api_token);
+//            setUserModel(userModel);
+//            setResult(RESULT_OK);
+//            finish();
         });
 
         binding.flImage.setOnClickListener(view -> openSheet());
@@ -176,22 +176,22 @@ public class SignUpActivity extends BaseActivity {
         });
 
 
-        if (getUserModel() != null) {
-            UserModel userModel = getUserModel();
-            model.setUsername(userModel.getData().getName());
-            model.setIdentification(userModel.getData().getIdentification());
-            model.setPassword("123456");
-            model.setPhone(userModel.getData().getPhone());
-            model.setVehicle_id(userModel.getData().getVehicle_id());
-            if (userModel.getData().getPhoto() != null && !userModel.getData().getPhoto().isEmpty()) {
-                Picasso.get().load(Uri.parse(Tags.base_url + userModel.getData().getPhoto())).into(binding.image);
-            }
-            binding.tvPassword.setVisibility(View.GONE);
-            binding.tiPassword.setVisibility(View.GONE);
-            binding.tvPhone.setVisibility(View.GONE);
-            binding.llPhone.setVisibility(View.GONE);
-            binding.btnSignup.setText(getString(R.string.update));
-        }
+//        if (getUserModel() != null) {
+//            UserModel userModel = getUserModel();
+//            model.setUsername(userModel.getData().getName());
+//            model.setIdentification(userModel.getData().getIdentification());
+//            model.setPassword("123456");
+//            model.setPhone(userModel.getData().getPhone());
+//            model.setVehicle_id(userModel.getData().getVehicle_id());
+//            if (userModel.getData().getPhoto() != null && !userModel.getData().getPhoto().isEmpty()) {
+//                Picasso.get().load(Uri.parse(Tags.base_url + userModel.getData().getPhoto())).into(binding.image);
+//            }
+//            binding.tvPassword.setVisibility(View.GONE);
+//            binding.tiPassword.setVisibility(View.GONE);
+//            binding.tvPhone.setVisibility(View.GONE);
+//            binding.llPhone.setVisibility(View.GONE);
+//            binding.btnSignup.setText(getString(R.string.update));
+//        }
 
         activitySignupMvvm.getVehicles(getLang());
 

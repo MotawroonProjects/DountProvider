@@ -8,6 +8,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.apps.dount_provider.model.OrderDataModel;
+import com.apps.dount_provider.model.OrderModel;
 import com.apps.dount_provider.model.PreviousOrderDataModel;
 import com.apps.dount_provider.model.PreviousOrderModel;
 import com.apps.dount_provider.remote.Api;
@@ -24,7 +26,7 @@ import retrofit2.Response;
 
 public class FragmentPreviousOrderMvvm extends AndroidViewModel {
     private static final String TAG = "FragmentPrevOrderMvvm";
-    private MutableLiveData<List<PreviousOrderModel>> onOrderDataSuccess;
+    private MutableLiveData<List<OrderModel>> onOrderDataSuccess;
     private MutableLiveData<Boolean> isLoadingLivData;
     private MutableLiveData<String> filterBy;
 
@@ -41,7 +43,7 @@ public class FragmentPreviousOrderMvvm extends AndroidViewModel {
         return isLoadingLivData;
     }
 
-    public LiveData<List<PreviousOrderModel>> onOrderDataSuccess() {
+    public LiveData<List<OrderModel>> onOrderDataSuccess() {
         if (onOrderDataSuccess == null) {
             onOrderDataSuccess = new MutableLiveData<>();
         }
@@ -65,14 +67,14 @@ public class FragmentPreviousOrderMvvm extends AndroidViewModel {
                 .getPreviousOrders(user_token, filterBy)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<Response<PreviousOrderDataModel>>() {
+                .subscribe(new SingleObserver<Response<OrderDataModel>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
                         disposable.add(d);
                     }
 
                     @Override
-                    public void onSuccess(@NonNull Response<PreviousOrderDataModel> response) {
+                    public void onSuccess(@NonNull Response<OrderDataModel> response) {
                         isLoadingLivData.setValue(false);
                         if (response.isSuccessful()) {
                             if (response.body() != null) {

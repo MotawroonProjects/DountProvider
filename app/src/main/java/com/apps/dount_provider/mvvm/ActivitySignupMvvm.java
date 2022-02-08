@@ -152,7 +152,7 @@ public class ActivitySignupMvvm extends AndroidViewModel {
         }
 
 
-        Api.getService(Tags.base_url).updateProfile(userModel.getData().getApi_token(), name_part, vehicle_part, identification_part, image)
+        Api.getService(Tags.base_url).updateProfile(userModel.getData().getAccess_token(), name_part, vehicle_part, identification_part, image)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<UserModel>>() {

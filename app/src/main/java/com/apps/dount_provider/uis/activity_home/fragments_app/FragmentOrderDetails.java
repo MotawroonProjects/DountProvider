@@ -93,7 +93,11 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
 
             }
         });
-
+  fragmentOrderDetailsMvvm.onWay().observe(activity, success -> {
+            if (success) {
+                binding.setStep("3");
+            }
+        });
         fragmentOrderDetailsMvvm.onAccept().observe(activity, success -> {
             if (success) {
                 binding.setStep("2");
@@ -126,7 +130,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         binding.step3.tvToShowLocation.setPaintFlags(binding.step3.tvToShowLocation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         binding.step1.tvFromShowLocation.setOnClickListener(v -> {
-            navigateToMap(model.getSetting().getLat(), model.getSetting().getLongitude());
+            navigateToMap(model.getBranch().getLatitude(), model.getBranch().getLongitude());
         });
 
         binding.step1.tvToShowLocation.setOnClickListener(v -> {
@@ -134,7 +138,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         });
 
         binding.step2.tvFromShowLocation.setOnClickListener(v -> {
-            navigateToMap(model.getSetting().getLat(), model.getSetting().getLongitude());
+            navigateToMap(model.getBranch().getLatitude(), model.getBranch().getLongitude());
         });
 
         binding.step3.tvToShowLocation.setOnClickListener(v -> {
@@ -156,8 +160,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         });
 
         binding.btnNext.setOnClickListener(v -> {
-            binding.setStep("3");
-
+fragmentOrderDetailsMvvm.onWayOrder(activity,getUserModel(),order_id);
         });
 
         binding.imageStep2.setOnClickListener(v -> {
@@ -169,12 +172,12 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         });
 
         binding.step1.imageCall.setOnClickListener(v -> {
-            String phone = model.getUser().getPhone();
+            String phone = model.getCustomer().getPhone_number();
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phone));
             startActivity(intent);
         });
         binding.step3.imageCall.setOnClickListener(v -> {
-            String phone = model.getUser().getPhone();
+            String phone = model.getCustomer().getPhone_number();
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phone));
             startActivity(intent);
         });
@@ -257,7 +260,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
                 mMap.getUiSettings().setMapToolbarEnabled(true);
                 mMap.setIndoorEnabled(true);
                 mMap.getUiSettings().setAllGesturesEnabled(true);
-                addMarker(mMap, Double.parseDouble(model.getSetting().getLat()), Double.parseDouble(model.getSetting().getLongitude()), model.getSetting().getAddress());
+                addMarker(mMap, Double.parseDouble(model.getBranch().getLatitude()), Double.parseDouble(model.getBranch().getLongitude()), model.getBranch().getAddress());
             } else if (mMap2 == null) {
                 mMap2 = googleMap;
                 mMap2.setTrafficEnabled(false);

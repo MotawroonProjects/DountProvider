@@ -33,12 +33,12 @@ public interface Service {
 
 
     @FormUrlEncoded
-    @POST("api/representative/login")
+    @POST("delivery/auth/login")
     Single<Response<UserModel>> login(@Field("name") String name,
                                       @Field("password") String password);
 
     @Multipart
-    @POST("api/representative/register")
+    @POST("delivery/representative/register")
     Observable<Response<UserModel>> signUp(@Part("name") RequestBody name,
                                            @Part("phone_code") RequestBody phone_code,
                                            @Part("phone") RequestBody phone,
@@ -51,7 +51,7 @@ public interface Service {
     );
 
     @Multipart
-    @POST("api/representative/edit_profile")
+    @POST("delivery/representative/edit_profile")
     Observable<Response<UserModel>> updateProfile(@Header("auth-token") String token,
                                                   @Part("name") RequestBody name,
                                                   @Part("vehicle_id") RequestBody vehicle_id,
@@ -63,7 +63,7 @@ public interface Service {
 
 
     @FormUrlEncoded
-    @POST("api/representative/logout")
+    @POST("delivery/auth/logout")
     Single<Response<StatusResponse>> logout(@Header("auth-token") String token,
                                             @Field("token") String phone_token
 
@@ -71,7 +71,7 @@ public interface Service {
     );
 
     @FormUrlEncoded
-    @POST("api/representative/store_rev_token")
+    @POST("delivery/auth/insert_token")
     Single<Response<StatusResponse>> updateFirebaseToken(@Header("auth-token") String token,
                                                          @Field("rev id") String rev_id,
                                                          @Field("token") String phone_token,
@@ -81,50 +81,52 @@ public interface Service {
     );
 
     @FormUrlEncoded
-    @POST("api/contact_us")
+    @POST("api/contact/contact")
     Single<Response<StatusResponse>> contactUs(@Field("name") String name,
                                                @Field("email") String email,
-                                               @Field("title") String title,
-                                               @Field("message") String message
+                                               @Field("subject") String subject,
+                                               @Field("message") String message);
 
 
-    );
-
-    @GET("api/representative/vehicles")
+    @GET("delivery/representative/vehicles")
     Single<Response<VehicleDataModel>> getVehicles(@Header("lang") String lang);
 
-    @GET("api/notifications")
+    @GET("delivery/notifications")
     Single<Response<NotificationDataModel>> getNotifications(@Header("AUTHORIZATION") String token,
                                                              @Query(value = "user_id") String user_id
     );
 
-    @GET("api/representative/current_orders")
-    Single<Response<OrderDataModel>> getCurrentOrders(@Header("auth-token") String auth_token);
+    @GET("delivery/orders/current_orders")
+    Single<Response<OrderDataModel>> getCurrentOrders(@Query(value = "user_id") String user_id);
 
-    @GET("api/representative/previous_orders")
-    Single<Response<PreviousOrderDataModel>> getPreviousOrders(@Header("auth-token") String auth_token,
+    @GET("delivery/orders/previous_orders")
+    Single<Response<OrderDataModel>> getPreviousOrders(@Header("auth-token") String auth_token,
                                                                @Query(value = "time") String time
     );
 
-    @GET("api/representative/order_details")
+    @GET("delivery/orders/order_details")
     Single<Response<SingleOrderDataModel>> getOrderDetails(@Header("auth-token") String auth_token,
                                                            @Query(value = "order_id") String order_id
     );
 
     @FormUrlEncoded
-    @POST("api/representative/accept_order")
+    @POST("delivery/orders/accept_order")
     Single<Response<StatusResponse>> acceptOrder(@Header("auth-token") String auth_token,
                                                  @Field("order_id") String order_id
     );
-
     @FormUrlEncoded
-    @POST("api/representative/cancel_order")
+    @POST("delivery/orders/on_way_order")
+    Single<Response<StatusResponse>> orderOnWay(@Header("auth-token") String auth_token,
+                                                 @Field("order_id") String order_id
+    );
+    @FormUrlEncoded
+    @POST("delivery/orders/cancel_order")
     Single<Response<StatusResponse>> cancelOrder(@Header("auth-token") String auth_token,
                                                  @Field("order_id") String order_id
     );
 
     @FormUrlEncoded
-    @POST("api/representative/end_order")
+    @POST("delivery/orders/end_order")
     Single<Response<StatusResponse>> endOrder(@Header("auth-token") String auth_token,
                                               @Field("order_id") String order_id
     );

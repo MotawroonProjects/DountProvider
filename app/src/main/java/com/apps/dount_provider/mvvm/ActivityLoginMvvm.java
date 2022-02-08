@@ -44,6 +44,7 @@ public class ActivityLoginMvvm extends AndroidViewModel {
 
 
     public void login(Context context, LoginModel model) {
+
         ProgressDialog dialog = Common.createProgressDialog(context, context.getResources().getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();

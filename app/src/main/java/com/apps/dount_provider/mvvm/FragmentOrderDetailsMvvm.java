@@ -31,6 +31,8 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
 
     private MutableLiveData<OrderModel> onOrderDataSuccess;
     private MutableLiveData<Boolean> onAccept;
+    private MutableLiveData<Boolean> onWay;
+
     private MutableLiveData<Boolean> onRefused;
     private MutableLiveData<Boolean> onEnded;
 
@@ -65,7 +67,12 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
         }
         return onAccept;
     }
-
+    public MutableLiveData<Boolean> onWay() {
+        if (onWay == null) {
+            onWay = new MutableLiveData<>();
+        }
+        return onWay;
+    }
     public MutableLiveData<Boolean> onRefused() {
         if (onRefused == null) {
             onRefused = new MutableLiveData<>();
@@ -86,7 +93,7 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
         isLoadingLivData.setValue(true);
 
         Api.getService(Tags.base_url)
-                .getOrderDetails(userModel.getData().getApi_token(), order_id)
+                .getOrderDetails(userModel.getData().getAccess_token(), order_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<SingleOrderDataModel>>() {
@@ -121,7 +128,7 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
         dialog.setCancelable(false);
         dialog.show();
         Api.getService(Tags.base_url)
-                .acceptOrder(userModel.getData().getApi_token(), order_id)
+                .acceptOrder(userModel.getData().getAccess_token(), order_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
@@ -150,6 +157,41 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
                 });
 
     }
+    public void onWayOrder(Context context, UserModel userModel, String order_id) {
+        ProgressDialog dialog = Common.createProgressDialog(context, context.getString(R.string.wait));
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        dialog.show();
+        Api.getService(Tags.base_url)
+                .orderOnWay(userModel.getData().getAccess_token(), order_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<Response<StatusResponse>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull Response<StatusResponse> response) {
+                        dialog.dismiss();
+                        if (response.isSuccessful()) {
+                            if (response.body() != null) {
+                                if (response.body().getStatus() == 200) {
+                                    onWay.setValue(true);
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        dialog.dismiss();
+                        Log.d(TAG, "onError: ", e);
+                    }
+                });
+
+    }
 
     public void refuseOrder(Context context, UserModel userModel, String order_id) {
         ProgressDialog dialog = Common.createProgressDialog(context, context.getString(R.string.wait));
@@ -157,7 +199,7 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
         dialog.setCancelable(false);
         dialog.show();
         Api.getService(Tags.base_url)
-                .cancelOrder(userModel.getData().getApi_token(), order_id)
+                .cancelOrder(userModel.getData().getAccess_token(), order_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {
@@ -194,7 +236,7 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
         dialog.setCancelable(false);
         dialog.show();
         Api.getService(Tags.base_url)
-                .endOrder(userModel.getData().getApi_token(), order_id)
+                .endOrder(userModel.getData().getAccess_token(), order_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<StatusResponse>>() {

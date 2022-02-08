@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apps.dount_provider.R;
 import com.apps.dount_provider.databinding.OrderRowBinding;
 import com.apps.dount_provider.databinding.PreviousOrderRowBinding;
+import com.apps.dount_provider.model.OrderModel;
 import com.apps.dount_provider.model.PreviousOrderModel;
 
 import java.util.List;
 
 public class PreviousOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<PreviousOrderModel> list;
+    private List<OrderModel> list;
     private Context context;
     private LayoutInflater inflater;
     private Fragment fragment;
@@ -70,7 +71,7 @@ public class PreviousOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public void updateList(List<PreviousOrderModel> list) {
+    public void updateList(List<OrderModel> list) {
         this.list = list;
         notifyDataSetChanged();
     }

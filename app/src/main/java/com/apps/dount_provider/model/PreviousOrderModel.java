@@ -8,7 +8,7 @@ public class PreviousOrderModel implements Serializable {
     private String created_at;
     private String day;
     private String time;
-    private OrderModel.Setting setting;
+    private OrderModel.BranchModel branch;
     private User user;
 
     public String getId() {
@@ -31,9 +31,9 @@ public class PreviousOrderModel implements Serializable {
         return time;
     }
 
-    public OrderModel.Setting getSetting() {
-        return setting;
-    }
+//    public OrderModel.Setting getSetting() {
+//        return setting;
+//    }
 
     public User getUser() {
         return user;

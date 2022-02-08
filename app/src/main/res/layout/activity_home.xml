@@ -96,7 +96,7 @@
                                 android:layout_marginTop="5dp"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="@{model.data.name}"
+                                android:text="@{model.data.user.name}"
                                 android:textColor="@color/gray4"
                                 android:textSize="15sp"
 
@@ -105,7 +105,7 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/image"
-                            user_image="@{model.data.photo}"
+                            user_image="@{model.data.user.photo}"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="8dp"
@@ -230,6 +230,7 @@
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
                             android:paddingStart="8dp"
+                            android:visibility="gone"
                             android:paddingEnd="8dp">
 
                             <ImageView
@@ -259,6 +260,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="8dp"
+                            android:visibility="gone"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/line" />
 
