@@ -93,14 +93,18 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
 
             }
         });
-  fragmentOrderDetailsMvvm.onWay().observe(activity, success -> {
+        fragmentOrderDetailsMvvm.onWay().observe(activity, success -> {
             if (success) {
                 binding.setStep("3");
+                fragmentOrderDetailsMvvm.getOrderDetails(getUserModel(), order_id);
+
             }
         });
         fragmentOrderDetailsMvvm.onAccept().observe(activity, success -> {
             if (success) {
                 binding.setStep("2");
+                fragmentOrderDetailsMvvm.getOrderDetails(getUserModel(), order_id);
+
             }
         });
 
@@ -160,7 +164,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         });
 
         binding.btnNext.setOnClickListener(v -> {
-fragmentOrderDetailsMvvm.onWayOrder(activity,getUserModel(),order_id);
+            fragmentOrderDetailsMvvm.onWayOrder(activity, getUserModel(), order_id);
         });
 
         binding.imageStep2.setOnClickListener(v -> {
@@ -194,12 +198,12 @@ fragmentOrderDetailsMvvm.onWayOrder(activity,getUserModel(),order_id);
     private void updateData() {
         binding.llData.setVisibility(View.VISIBLE);
         updateUI();
-        String status = model.getStatus();
-        if (status.equals("accepted")) {
+        String status = model.getDelivery_status();
+        if (status.equals("append")) {
             binding.setStep("1");
-            binding.imageStep2.setBackgroundResource(R.drawable.circle_stroke_color4);
-            binding.imageStep2.setColorFilter(ContextCompat.getColor(activity, R.color.color4));
-        } else if (status.equals("delivering")) {
+            binding.imageStep1.setBackgroundResource(R.drawable.circle_stroke_color4);
+            binding.imageStep1.setColorFilter(ContextCompat.getColor(activity, R.color.color4));
+        } else if (status.equals("accepted")) {
             binding.setStep("2");
 
             binding.imageStep2.setBackgroundResource(R.drawable.circle_stroke_color4);

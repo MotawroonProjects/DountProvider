@@ -3,6 +3,7 @@ package com.apps.dount_provider.mvvm;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -58,6 +59,7 @@ public class FragmentContactusMvvm extends AndroidViewModel {
                     @Override
                     public void onSuccess(@NonNull Response<StatusResponse> response) {
                         dialog.dismiss();
+
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 if (response.body().getStatus() == 200) {

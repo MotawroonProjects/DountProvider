@@ -78,6 +78,12 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                     @Override
                     public void onSuccess(@NonNull Response<OrderDataModel> response) {
                         isLoadingLivData.setValue(false);
+//                        try {
+////                            Log.e("lllll",user_id+" "
+////                                    +response.code()+""+response.errorBody().s);
+////                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 if (response.body().getStatus() == 200) {

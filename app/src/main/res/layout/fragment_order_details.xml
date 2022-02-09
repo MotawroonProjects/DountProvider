@@ -43,6 +43,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/imageStep1"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/circle_stroke_color4"
@@ -50,6 +51,7 @@
                         android:src="@drawable/ic_step1" />
 
                     <View
+                        android:id="@+id/viewStep1"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_gravity="center_vertical"
@@ -154,7 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:background="@drawable/rounded_top_color4"
-                        android:text="@string/next"
+                        android:text="@string/on_way"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="14sp"

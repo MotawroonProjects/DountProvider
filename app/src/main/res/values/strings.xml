@@ -94,5 +94,6 @@
     <string name="accept">Accept</string>
     <string name="refused">Refused</string>
     <string name="end_order">End order</string>
+    <string name="on_way">On Way</string>
 
 </resources>

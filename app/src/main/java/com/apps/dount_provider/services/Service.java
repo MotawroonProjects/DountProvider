@@ -52,7 +52,7 @@ public interface Service {
 
     @Multipart
     @POST("delivery/representative/edit_profile")
-    Observable<Response<UserModel>> updateProfile(@Header("auth-token") String token,
+    Observable<Response<UserModel>> updateProfile(@Header("Authorization") String token,
                                                   @Part("name") RequestBody name,
                                                   @Part("vehicle_id") RequestBody vehicle_id,
                                                   @Part("identification") RequestBody identification,
@@ -64,7 +64,7 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("delivery/auth/logout")
-    Single<Response<StatusResponse>> logout(@Header("auth-token") String token,
+    Single<Response<StatusResponse>> logout(@Header("Authorization") String token,
                                             @Field("token") String phone_token
 
 
@@ -72,7 +72,7 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("delivery/auth/insert_token")
-    Single<Response<StatusResponse>> updateFirebaseToken(@Header("auth-token") String token,
+    Single<Response<StatusResponse>> updateFirebaseToken(@Header("Authorization") String token,
                                                          @Field("rev id") String rev_id,
                                                          @Field("token") String phone_token,
                                                          @Field("type") String software_type
@@ -81,7 +81,7 @@ public interface Service {
     );
 
     @FormUrlEncoded
-    @POST("api/contact/contact")
+    @POST("delivery/contact_us")
     Single<Response<StatusResponse>> contactUs(@Field("name") String name,
                                                @Field("email") String email,
                                                @Field("subject") String subject,
@@ -100,34 +100,34 @@ public interface Service {
     Single<Response<OrderDataModel>> getCurrentOrders(@Query(value = "user_id") String user_id);
 
     @GET("delivery/orders/previous_orders")
-    Single<Response<OrderDataModel>> getPreviousOrders(@Header("auth-token") String auth_token,
+    Single<Response<OrderDataModel>> getPreviousOrders(@Header("Authorization") String auth_token,
                                                                @Query(value = "time") String time
     );
 
     @GET("delivery/orders/order_details")
-    Single<Response<SingleOrderDataModel>> getOrderDetails(@Header("auth-token") String auth_token,
+    Single<Response<SingleOrderDataModel>> getOrderDetails(@Header("Authorization") String auth_token,
                                                            @Query(value = "order_id") String order_id
     );
 
     @FormUrlEncoded
     @POST("delivery/orders/accept_order")
-    Single<Response<StatusResponse>> acceptOrder(@Header("auth-token") String auth_token,
+    Single<Response<StatusResponse>> acceptOrder(@Header("Authorization") String auth_token,
                                                  @Field("order_id") String order_id
     );
     @FormUrlEncoded
     @POST("delivery/orders/on_way_order")
-    Single<Response<StatusResponse>> orderOnWay(@Header("auth-token") String auth_token,
+    Single<Response<StatusResponse>> orderOnWay(@Header("Authorization") String auth_token,
                                                  @Field("order_id") String order_id
     );
     @FormUrlEncoded
     @POST("delivery/orders/cancel_order")
-    Single<Response<StatusResponse>> cancelOrder(@Header("auth-token") String auth_token,
+    Single<Response<StatusResponse>> cancelOrder(@Header("Authorization") String auth_token,
                                                  @Field("order_id") String order_id
     );
 
     @FormUrlEncoded
     @POST("delivery/orders/end_order")
-    Single<Response<StatusResponse>> endOrder(@Header("auth-token") String auth_token,
+    Single<Response<StatusResponse>> endOrder(@Header("Authorization") String auth_token,
                                               @Field("order_id") String order_id
     );
 

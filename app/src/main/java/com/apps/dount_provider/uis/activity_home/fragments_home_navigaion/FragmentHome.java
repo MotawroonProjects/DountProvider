@@ -23,6 +23,7 @@ import com.apps.dount_provider.uis.activity_base.BaseFragment;
 import com.apps.dount_provider.databinding.FragmentHomeBinding;
 import com.apps.dount_provider.uis.activity_home.HomeActivity;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -107,8 +108,13 @@ public class FragmentHome extends BaseFragment {
             }
         });
         fragmentHomeMvvm.onOrderDataSuccess().observe(this, dataList -> {
-            if (adapter != null && dataList != null) {
+            if (adapter != null && dataList != null&&dataList.size()>0) {
                 adapter.updateList(dataList);
+                binding.llNoData.setVisibility(View.GONE);
+            }
+            else{
+                adapter.updateList(new ArrayList<>());
+                binding.llNoData.setVisibility(View.VISIBLE);
             }
         });
         adapter = new CurrentOrderAdapter(activity, this);

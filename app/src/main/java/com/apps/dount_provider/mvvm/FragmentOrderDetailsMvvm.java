@@ -18,6 +18,8 @@ import com.apps.dount_provider.remote.Api;
 import com.apps.dount_provider.share.Common;
 import com.apps.dount_provider.tags.Tags;
 
+import java.io.IOException;
+
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -140,6 +142,7 @@ public class FragmentOrderDetailsMvvm extends AndroidViewModel {
                     @Override
                     public void onSuccess(@NonNull Response<StatusResponse> response) {
                         dialog.dismiss();
+
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
                                 if (response.body().getStatus() == 200) {
