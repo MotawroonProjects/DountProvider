@@ -94,6 +94,6 @@
     <string name="accept">قبول</string>
     <string name="refused">رفض</string>
     <string name="end_order">إنهاء التوصيل</string>
-    <string name="on_way">On Way</string>
+    <string name="on_way">فى الطريق</string>
 
 </resources>
