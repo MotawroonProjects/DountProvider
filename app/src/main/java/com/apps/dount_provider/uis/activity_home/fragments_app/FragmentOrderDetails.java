@@ -142,6 +142,7 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         });
 
         binding.step2.tvFromShowLocation.setOnClickListener(v -> {
+
             navigateToMap(model.getBranch().getLatitude(), model.getBranch().getLongitude());
         });
 
@@ -273,9 +274,9 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
                 mMap2.getUiSettings().setMapToolbarEnabled(true);
                 mMap2.setIndoorEnabled(true);
                 mMap2.getUiSettings().setAllGesturesEnabled(true);
-
-                addMarker(mMap2, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
-
+                if (model.getLatitude() != null && !model.getLatitude().isEmpty()) {
+                    addMarker(mMap2, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
+                }
 
             } else if (mMap3 == null) {
                 mMap3 = googleMap;
@@ -285,10 +286,11 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
                 mMap3.getUiSettings().setMapToolbarEnabled(true);
                 mMap3.setIndoorEnabled(true);
                 mMap3.getUiSettings().setAllGesturesEnabled(true);
+                if (model.getLatitude() != null && !model.getLatitude().isEmpty()) {
 
-                addMarker(mMap3, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
+                    addMarker(mMap3, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
 
-
+                }
             } else if (mMap4 == null) {
                 mMap4 = googleMap;
                 mMap4.setTrafficEnabled(false);
@@ -297,9 +299,10 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
                 mMap4.getUiSettings().setMapToolbarEnabled(true);
                 mMap4.setIndoorEnabled(true);
                 mMap4.getUiSettings().setAllGesturesEnabled(true);
+                if (model.getLatitude() != null && !model.getLatitude().isEmpty()) {
 
-                addMarker(mMap4, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
-
+                    addMarker(mMap4, Double.parseDouble(model.getLatitude()), Double.parseDouble(model.getLongitude()), model.getAddress());
+                }
 
             }
 
