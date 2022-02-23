@@ -225,8 +225,8 @@ public class FragmentOrderDetails extends BaseFragment implements OnMapReadyCall
         binding.step1.setModel(model);
         binding.step2.setModel(model);
         binding.step3.setModel(model);
-        binding.step1.recView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
-        binding.step2.recView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
+        binding.step1.recView.setLayoutManager(new LinearLayoutManager(activity));
+        binding.step2.recView.setLayoutManager(new LinearLayoutManager(activity));
         ProductAdapter adapter = new ProductAdapter(activity);
         adapter.updateList(model.getDetails());
         binding.step1.recView.setAdapter(adapter);

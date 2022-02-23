@@ -17,6 +17,7 @@ import com.apps.dount_provider.model.UserModel;
 import com.apps.dount_provider.remote.Api;
 import com.apps.dount_provider.share.Common;
 import com.apps.dount_provider.tags.Tags;
+
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -35,8 +36,8 @@ public class ActivityLoginMvvm extends AndroidViewModel {
 
     }
 
-    public LiveData<UserModel> onLoginSuccess(){
-        if (onLoginSuccess==null){
+    public LiveData<UserModel> onLoginSuccess() {
+        if (onLoginSuccess == null) {
             onLoginSuccess = new MutableLiveData<>();
         }
         return onLoginSuccess;
@@ -52,33 +53,33 @@ public class ActivityLoginMvvm extends AndroidViewModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<Response<UserModel>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                disposable.add(d);
-            }
-
-            @Override
-            public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
-                dialog.dismiss();
-
-                if (userModelResponse.isSuccessful()) {
-                    Log.e("status", userModelResponse.body().getStatus() + "");
-                    if (userModelResponse.body().getStatus() == 200) {
-
-                        onLoginSuccess.setValue(userModelResponse.body());
-                    } else if (userModelResponse.body().getStatus() == 403) {
-                        Toast.makeText(context, R.string.inv_cred, Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
                     }
-                }
 
-            }
+                    @Override
+                    public void onSuccess(@NonNull Response<UserModel> userModelResponse) {
+                        dialog.dismiss();
+                        Log.e("pooooo", userModelResponse.code() + "");
+                        if (userModelResponse.isSuccessful()) {
+                            Log.e("status", userModelResponse.body().getStatus() + "");
+                            if (userModelResponse.body().getStatus() == 200) {
 
-            @Override
-            public void onError(@NonNull Throwable e) {
-                dialog.dismiss();
+                                onLoginSuccess.setValue(userModelResponse.body());
+                            } else if (userModelResponse.body().getStatus() == 403) {
+                                Toast.makeText(context, R.string.inv_cred, Toast.LENGTH_SHORT).show();
+                            }
+                        }
 
-            }
-        });
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        dialog.dismiss();
+
+                    }
+                });
     }
 
 
